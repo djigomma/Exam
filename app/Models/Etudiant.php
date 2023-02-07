@@ -15,7 +15,7 @@ class Etudiant extends Model
         "matiere_id",
         "semestre_id",
         "note",
-        "Exame"
+        "exam"
     ];
     public function matiere(){
         return $this->belongsTo(Matiere::class, "matiere_id", "id");

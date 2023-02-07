@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +21,9 @@ use App\Http\Controllers\EtudiantController;
 
 
 Route::get('/', [App\Http\Controllers\EtudiantController::class, 'index'])->name('etudiant.index');
-Route::post('/etudiant/store', [EtudiantController::class, 'store'])->name('ajout');
+Route::post('/', [EtudiantController::class, 'store'])->name('ajout');
+
+Route::get('/etudiant', App\Http\Livewire\Etudiant\Index::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
